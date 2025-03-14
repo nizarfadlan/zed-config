@@ -1,0 +1,206 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  // UI
+  "project_panel": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "bottom",
+    "shell": {
+      "program": "/usr/bin/fish"
+    },
+    "font_family": "SpaceMono Nerd Font",
+    "font_size": 12,
+    "line_height": "comfortable",
+    "working_directory": "current_project_directory",
+    "toolbar": {
+      "show": true,
+      "breadcrumbs": true
+    },
+    "scrollbar": {
+      "show": "auto"
+    },
+    "env": {
+      "EDITOR": "zed --wait"
+    }
+  },
+  "ui_font_features": {
+    "calt": true
+  },
+  "ui_font_fallbacks": [
+    "JetBrains Mono"
+  ],
+  "buffer_font_family": "JetBrains Mono",
+  "tab_size": 2,
+  "preferred_line_length": 80,
+  "soft_wrap": "editor_width",
+  "ui_font_size": 15,
+  "buffer_font_size": 13,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Vesper"
+  },
+  "icon_theme": "Charmed Icons",
+  "tab_bar": {
+    "show": false,
+    "show_nav_history_buttons": false,
+    "show_tab_bar_buttons": false
+  },
+  "tabs": {
+    "close_position": "right",
+    "file_icons": true,
+    "git_status": true,
+    "activate_on_close": "history",
+    "show_close_button": "hover"
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  // Feature
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  // Editor
+  "vim_mode": true,
+  "vim": {
+    "enable_vim_sneak": true
+  },
+  "base_keymap": "VSCode",
+  "auto_install_extensions": {
+    "html": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "markdown": true,
+    "python": true,
+    "javascript": true,
+    "typescript": true
+  },
+  "autosave": "on_focus_change",
+  "format_on_save": "on",
+  "formatter": "language_server",
+  "languages": {
+    "TypeScript": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "TSX": {
+      "code_actions_on_format": {
+        "source.organizeImports": true
+      }
+    },
+    "Python": {
+      "language_servers": [
+        "!pyright",
+        "ruff",
+        "!pylsp"
+      ],
+      "formatter": [
+        {
+          "code_actions": {
+            "source.organizeImports.ruff": true,
+            "source.fixAll.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ],
+      "inlay_hints": {
+        "enabled": true,
+        "show_background": true
+      },
+      "tab_size": 4
+    },
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      }
+    }
+  },
+  "lsp": {
+    "eslint": {
+      "settings": {
+        "codeActionOnSave": {
+          "rules": [
+            "import/order"
+          ]
+        }
+      }
+    },
+    "pylsp": {
+      "settings": {
+        "plugins": {
+          "mypy": {
+            "enabled": false
+          },
+          "pycodestyle": {
+            "enabled": true
+          }
+        }
+      }
+    }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    "**/.idea",
+    "**/.venv",
+    "**/out",
+    "**/dist",
+    "**/.husky",
+    "**/.turbo",
+    "**/.vscode-test",
+    "**/.vscode",
+    "**/.next",
+    "**/.storybook",
+    "**/.tap",
+    "**/.nyc_output",
+    "**/report",
+    "**/node_modules"
+  ],
+  "file_scan_inclusions": [
+    ".env*"
+  ],
+  "file_types": {
+    "Dockerfile": [
+      "Dockerfile*"
+    ]
+  },
+  "max_tabs": 10,
+  "assistant": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-3-7-sonnet"
+    },
+    "version": "2"
+  },
+  "inlay_hints": {
+    "enabled": true
+  },
+  "relative_line_numbers": true
+}
