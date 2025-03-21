@@ -77,18 +77,15 @@
   },
   // Editor
   "vim_mode": true,
-  "vim": {
-    "enable_vim_sneak": true
-  },
+  // "vim": {
+  //   "enable_vim_sneak": true
+  // },
   "base_keymap": "VSCode",
   "auto_install_extensions": {
     "html": true,
     "dockerfile": true,
     "docker-compose": true,
-    "markdown": true,
-    "python": true,
-    "javascript": true,
-    "typescript": true
+    "ruff": true
   },
   "autosave": "on_focus_change",
   "format_on_save": "on",
@@ -96,19 +93,22 @@
   "languages": {
     "TypeScript": {
       "code_actions_on_format": {
-        "source.organizeImports": true
-      }
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true
+      },
+      "format_on_save": "on"
     },
     "TSX": {
       "code_actions_on_format": {
-        "source.organizeImports": true
-      }
+        "source.fixAll.eslint": true,
+        "source.removeUnusedImports": true
+      },
+      "format_on_save": "on"
     },
     "Python": {
       "language_servers": [
-        "!pyright",
-        "ruff",
-        "!pylsp"
+        "pyright",
+        "ruff"
       ],
       "formatter": [
         {
@@ -123,16 +123,19 @@
           }
         }
       ],
+      "tab_size": 4,
       "inlay_hints": {
         "enabled": true,
-        "show_background": true
-      },
-      "tab_size": 4
+        "show_type_hints": true,
+        "show_parameter_hints": true,
+        "show_other_hints": false
+      }
     },
     "JavaScript": {
       "code_actions_on_format": {
         "source.fixAll.eslint": true
-      }
+      },
+      "format_on_save": "on"
     }
   },
   "lsp": {
@@ -145,15 +148,14 @@
         }
       }
     },
-    "pylsp": {
+    "pyright": {
       "settings": {
-        "plugins": {
-          "mypy": {
-            "enabled": false
-          },
-          "pycodestyle": {
-            "enabled": true
-          }
+        "python.analysis": {
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "off"
+        },
+        "python": {
+          "pythonPath": ".venv/bin/python"
         }
       }
     }
@@ -191,7 +193,7 @@
       "Dockerfile*"
     ]
   },
-  "max_tabs": 10,
+  "max_tabs": 5,
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
@@ -200,7 +202,12 @@
     "version": "2"
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": false
   },
+  "show_completions_on_input": true,
+  "always_treat_brackets_as_autoclosed": true,
   "relative_line_numbers": true
 }
