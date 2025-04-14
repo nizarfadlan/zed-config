@@ -8,6 +8,14 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // UI
+  "edit_predictions": {
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_assistant": false
+  },
   "project_panel": {
     "dock": "right"
   },
@@ -92,18 +100,28 @@
   "formatter": "language_server",
   "languages": {
     "TypeScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-        "source.removeUnusedImports": true
-      },
-      "format_on_save": "on"
+      "formatter": [
+        "prettier",
+        {
+          "code_actions": {
+            "source.fixAll.eslint": true,
+            "source.removeUnusedImports": true,
+            "source.organizeImports": true
+          }
+        }
+      ]
     },
     "TSX": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true,
-        "source.removeUnusedImports": true
-      },
-      "format_on_save": "on"
+      "formatter": [
+        "prettier",
+        {
+          "code_actions": {
+            "source.fixAll.eslint": true,
+            "source.removeUnusedImports": true,
+            "source.organizeImports": true
+          }
+        }
+      ]
     },
     "Python": {
       "language_servers": [
@@ -132,22 +150,19 @@
       }
     },
     "JavaScript": {
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      },
-      "format_on_save": "on"
+      "formatter": [
+        "prettier",
+        {
+          "code_actions": {
+            "source.fixAll.eslint": true,
+            "source.removeUnusedImports": true,
+            "source.organizeImports": true
+          }
+        }
+      ]
     }
   },
   "lsp": {
-    "eslint": {
-      "settings": {
-        "codeActionOnSave": {
-          "rules": [
-            "import/order"
-          ]
-        }
-      }
-    },
     "pyright": {
       "settings": {
         "python.analysis": {
@@ -201,12 +216,12 @@
     },
     "version": "2"
   },
-  "inlay_hints": {
-    "enabled": true,
-    "show_type_hints": true,
-    "show_parameter_hints": true,
-    "show_other_hints": false
-  },
+  // "inlay_hints": {
+  //   "enabled": false,
+  //   "show_type_hints": false,
+  //   "show_parameter_hints": false,
+  //   "show_other_hints": false
+  // },
   "show_completions_on_input": true,
   "always_treat_brackets_as_autoclosed": true,
   "relative_line_numbers": true
