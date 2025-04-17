@@ -9,6 +9,46 @@
 {
   // UI
   "edit_predictions": {
+    "disabled_globs": [
+      ".env",
+      ".env.*",
+      ".venv",
+      "node_modules",
+      "dist",
+      "out",
+      ".git",
+      ".next",
+      ".turbo",
+      ".vscode-test",
+      ".vscode",
+      ".storybook",
+      ".tap",
+      ".nyc_output",
+      "report",
+      "**/.git",
+      "**/.svn",
+      "**/.hg",
+      "**/.jj",
+      "**/CVS",
+      "**/.DS_Store",
+      "**/Thumbs.db",
+      "**/.classpath",
+      "**/.settings",
+      "**/.idea",
+      "**/.venv",
+      "**/out",
+      "**/dist",
+      "**/.husky",
+      "**/.turbo",
+      "**/.vscode-test",
+      "**/.vscode",
+      "**/.next",
+      "**/.storybook",
+      "**/.tap",
+      "**/.nyc_output",
+      "**/report",
+      "**/node_modules"
+    ],
     "mode": "subtle",
     "copilot": {
       "proxy": null,
@@ -82,6 +122,7 @@
   // Feature
   "features": {
     "edit_prediction_provider": "zed"
+    // "edit_prediction_provider": "supermaven"
   },
   // Editor
   "vim_mode": true,
@@ -167,7 +208,25 @@
       "settings": {
         "python.analysis": {
           "diagnosticMode": "workspace",
-          "typeCheckingMode": "off"
+          "typeCheckingMode": "basic",
+          "autoImportCompletions": true,
+          "diagnosticSeverityOverrides": {
+            "reportMissingImports": true,
+            "reportUndefinedVariable": true,
+            "reportAttributeAccessIssue": "warning",
+            "reportUnboundVariable": true,
+            "reportGeneralTypeIssues": "warning",
+            "reportOptionalMemberAccess": "warning",
+            "reportOptionalSubscript": "warning",
+            "reportPrivateImportUsage": "warning",
+            "reportArgumentType": "warning",
+            "reportReturnType": "warning",
+            "reportAssignmentType": "warning"
+          },
+          "stubPath": ".typings",
+          "extraPaths": [
+            "./src"
+          ]
         },
         "python": {
           "pythonPath": ".venv/bin/python"
@@ -203,6 +262,10 @@
   "file_scan_inclusions": [
     ".env*"
   ],
+  "diagnostics": {
+    "show": true,
+    "on_save": true
+  },
   "file_types": {
     "Dockerfile": [
       "Dockerfile*"
@@ -212,17 +275,30 @@
   "assistant": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-3-7-sonnet"
+      "model": "claude-3.7-sonnet-thought"
     },
     "version": "2"
   },
-  // "inlay_hints": {
-  //   "enabled": false,
-  //   "show_type_hints": false,
-  //   "show_parameter_hints": false,
-  //   "show_other_hints": false
-  // },
+  "language_models": {
+    "openai": {
+      "version": "1",
+      "api_url": "https://openrouter.ai/api/v1",
+      "available_models": [
+        {
+          "display_name": "Quasar Alpha",
+          "name": "openrouter/quasar-alpha",
+          "max_tokens": 1000000
+        }
+      ]
+    }
+  },
+  "inlay_hints": {
+    "enabled": false,
+    "show_type_hints": false,
+    "show_parameter_hints": false,
+    "show_other_hints": false
+  },
   "show_completions_on_input": true,
   "always_treat_brackets_as_autoclosed": true,
-  "relative_line_numbers": true
+  "relative_line_numbers": true,
 }
